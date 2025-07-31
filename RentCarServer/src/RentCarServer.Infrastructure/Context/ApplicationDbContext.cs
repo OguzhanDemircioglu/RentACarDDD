@@ -6,12 +6,8 @@ using RentCarServer.Domain.Abstractions;
 
 namespace RentCarServer.Infrastructure.Context;
 
-internal sealed class ApplicationDbContext : DbContext
+internal sealed class ApplicationDbContext(DbContextOptions options) : DbContext(options)
 {
-    private ApplicationDbContext(DbContextOptions options) : base(options)
-    {
-    }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);

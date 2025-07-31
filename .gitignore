@@ -197,7 +197,6 @@ databasedevelopment.md
 [node_modules/**]
 /history/*
 **/site
-**/properties
 *.epp
 *.ini
 *.swp
