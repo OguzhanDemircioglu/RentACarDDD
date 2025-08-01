@@ -5,8 +5,8 @@ using Microsoft.OData.ModelBuilder;
 
 namespace RentCarServer.WebAPI.Controllers;
 
-[Route("odata")]
 [ApiController]
+[Route("api/[controller]")]
 [EnableQuery]
 public class ODataController : ControllerBase
 {
@@ -14,7 +14,6 @@ public class ODataController : ControllerBase
     {
         ODataConventionModelBuilder builder = new();
         builder.EnableLowerCamelCase();
-        //builder.EntitySet<UserResponse>("users");
         return builder.GetEdmModel();
     }
     [HttpGet("ping")]
