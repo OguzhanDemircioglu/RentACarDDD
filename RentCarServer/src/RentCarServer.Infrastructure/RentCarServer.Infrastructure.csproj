@@ -24,8 +24,4 @@
     <ProjectReference Include="..\RentCarServer.Domain\RentCarServer.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Configuration\" />
-  </ItemGroup>
-
 </Project>

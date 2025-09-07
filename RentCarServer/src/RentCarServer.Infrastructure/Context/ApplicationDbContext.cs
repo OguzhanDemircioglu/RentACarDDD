@@ -1,13 +1,17 @@
 ﻿using System.Security.Claims;
+using GenericRepository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RentCarServer.Domain.Abstractions;
+using RentCarServer.Domain.Users;
 
 namespace RentCarServer.Infrastructure.Context;
 
-internal sealed class ApplicationDbContext(DbContextOptions options) : DbContext(options)
+internal sealed class ApplicationDbContext(DbContextOptions options) : DbContext(options), IUnitOfWork
 {
+    public DbSet<User> Users { get; set; } = null!;
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
